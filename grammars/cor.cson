@@ -1,0 +1,115 @@
+'scopeName': 'source.cor'
+'name': 'corvassembly'
+'limitLineLength': false
+
+'fileTypes': [
+  'cor',
+  'corh',
+]
+
+'patterns': [
+  {
+    'begin': '/\\*'
+    'end': '\\*/'
+    'name': 'comment.block.cor'
+  }
+  {
+    'begin': '//'
+    'end': '$\\n?'
+    'name': 'comment.line.double-slash.cor'
+  }
+  {
+    'match': '(?<!\\w  |\\w)\\b((LDR|ldr|STR|str|LPT|lpt|SPT|spt|CMP|cmp|ADD|add|SUB|sub|MUL|mul|DIV|div|MOD|mod|AND|and|OR|or|XOR|xor|NOT|not|LSL|lsl|LSR|lsr|PSH|psh|POP|pop|PEK|pek|JMP|jmp|JSR|jsr|JOC|joc|JSC|jsc|RSC|rsc)(?= +))'
+    'name': 'entity.name.function.cor'
+  }
+  {
+    'match': '(?<!\\w  |\\w)\\b((NOP|nop|RTS|rts)(?!( *\\w+)))'
+    'name': 'support.function.cor'
+  }
+  {
+    'match': '\\b([a-h])(?![A-z_0-9\\.])'
+    'name': 'support.function.cor'
+  }
+  {
+    # This is for interrupt vectors
+    'match': '\\b((TIMER0))(?![A-z_0-9\\.])'
+    'name': 'support.constant.cor'
+  }
+  {
+    'match': '\\b((UART|UART_STATUS|RX_EMPTY|TX_EMPTY|RX_FULL|TX_FULL|TIMER0_COMP|TIMER0_PRES|TIMER0_EN|TIMERS|DISPLAY|R[4AB]0[0-9A-F][0-9A-F]))(?![A-z_0-9\\.])'
+    'name': 'support.function.cor'
+  }
+  {
+    'match': '(==)|(>=)|(<=)|[+\\-/\\*<>\\&\\|\\^~]'
+    'name': 'keyword.operator.cor'
+  }
+  {
+    'match': '(?<!\\w)\\b(pre|ram|rom|gpu|ptr|import|as)\\b'
+    'name': 'storage.type.cor'
+  }
+  {
+    'match': '(?<!\\w)\\b(for|break|breakall|continue)\\b'
+    'name': 'keyword.control.cor'
+  }
+  {
+    'match': '(?<=((joc|JOC) ))\\b(carry|zero|negative|equal|greater|less)(?!\\w+)'
+    'name': 'support.variable.cor'
+  }
+  {
+  	'match': '(?<=,) *(ram|rom|gpu)'
+  	'name': 'support.function.cor'
+  }
+  {
+    # This is for pointer variables preceeded by dollar sign
+  	'match': '\\$[A-Za-z_][A-Za-z0-9_.]*'
+  	'name': 'entity.name.type.class.cor'
+  }
+  {
+    'match': '\\b([A-Z_][A-Z0-9_]*)\\b'
+    'name': 'string.unquoted.cor'
+  }
+  {
+    # Proper strings
+    'begin': '"'
+    'end': '"|\\n'
+    'name': 'string.quoted.cor'
+    'patterns': [
+      {
+        'match': '\\\\.'
+        'name': 'constant.character.escape.cor'
+      }
+    ]
+  }
+  # {
+  #   # character constants
+  #   'match': '\\\'(\\{0,1}[A-Za-z])\\\''
+  #   'name': 'constant.character.escape.cor'
+  # }
+  {
+    # This is a label, which can contain an interrupt vector
+    'match': '(?<!\\w  |\\w)\\b(([A-z]|_)\\w*)(?=:|(\\([A-Za-z_][A-Za-z_0-9]*\\)))'
+    'name': 'keyword.control.cor'
+  }
+  {
+    'match': '(?<!\\w|\\$)\\b(([A-z]|_)\\w*)(?!:)'
+    'name': 'variable.parameter.cor'
+  }
+  {
+    'match': '(?<!&)\\b([1-9][0-9]*|0)(?!\\w+)'
+    'name': 'constant.numeric.cor'
+  }
+  {
+    # Hex numbers
+    'match': '(?<!&)(0x)([0-9A-Fa-f]+)(?![G-Zg-z]+)'
+    'captures':
+      1: 'name': 'entity.name.type.class.cor'
+      0: 'name': 'constant.numeric.cor'
+  }
+  {
+    # Binary numbers
+    'match': '(?<!&)(0b)([0-1_]+)(?![2-9]|\\w+)'
+    'captures':
+      1: 'name': 'entity.name.type.class.cor'
+      0: 'name': 'constant.numeric.cor'
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "name": "language-cor",
+  "version": "0.1.0",
+  "description": "Syntax highlighting for the Corvassembly language.",
+  "keywords": [
+    "Corvassembly",
+    "FPGA",
+    "Corvus",
+    "Prudens"
+  ],
+  "repository": "https://github.com/CorvusPrudens/language-cor",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0"
+  },
+  "dependencies": {}
+}
