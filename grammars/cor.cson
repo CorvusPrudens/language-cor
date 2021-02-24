@@ -19,7 +19,7 @@
     'name': 'comment.line.double-slash.cor'
   }
   {
-    'match': '(?<!\\w  |\\w)\\b((LDR|ldr|STR|str|LPT|lpt|SPT|spt|CMP|cmp|ADD|add|SUB|sub|MUL|mul|DIV|div|MOD|mod|AND|and|OR|or|XOR|xor|NOT|not|LSL|lsl|LSR|lsr|PSH|psh|POP|pop|PEK|pek|JMP|jmp|JSR|jsr|JOC|joc|JSC|jsc|RSC|rsc)(?= +))'
+    'match': '(?<!\\w  |\\w)\\b((LDR|ldr|STR|str|LPT|lpt|SPT|spt|CMP|cmp|ADD|add|SUB|sub|MUL|mul|DIV|div|MOD|mod|AND|and|OR|or|XOR|xor|NOT|not|LSL|lsl|LSR|lsr|PSH|psh|POP|pop|PEK|pek|JMP|jmp|JSR|jsr|JOC|joc|JSC|jsc|RSC|rsc|rti|RTI|ric|RIC)(?= +))'
     'name': 'entity.name.function.cor'
   }
   {
@@ -32,7 +32,7 @@
   }
   {
     # This is for interrupt vectors
-    'match': '\\b((TIMER0))(?![A-z_0-9\\.])'
+    'match': '\\b((TIMER)|(FRAME))(?![A-z_0-9\\.])'
     'name': 'support.constant.cor'
   }
   {
@@ -52,7 +52,7 @@
     'name': 'keyword.control.cor'
   }
   {
-    'match': '(?<=((joc|JOC) ))\\b(carry|zero|negative|equal|greater|less)(?!\\w+)'
+    'match': '\\b(carry|zero|negative|equal|greater|less)(?!\\w+)'
     'name': 'support.variable.cor'
   }
   {
