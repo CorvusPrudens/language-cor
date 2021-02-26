@@ -48,7 +48,7 @@
     'name': 'storage.type.cor'
   }
   {
-    'match': '(?<!\\w)\\b(for|break|breakall|continue)\\b'
+    'match': '\\b(for|break|breakall|continue|if|elif|else|is|isnt)\\b'
     'name': 'keyword.control.cor'
   }
   {
