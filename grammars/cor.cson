@@ -80,11 +80,11 @@
       }
     ]
   }
-  # {
-  #   # character constants
-  #   'match': '\\\'(\\{0,1}[A-Za-z])\\\''
-  #   'name': 'constant.character.escape.cor'
-  # }
+  {
+    # character constants
+    'match': '\'((\\\\.)|[^\\\\])\''
+    'name': 'constant.character.escape.cor'
+  }
   {
     # This is a label, which can contain an interrupt vector
     'match': '(?<!\\w  |\\w)\\b(([A-z]|_)\\w*)(?=:|(\\([A-Za-z_][A-Za-z_0-9]*\\)))'
